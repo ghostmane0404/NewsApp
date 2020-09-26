@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.mydummycompany.newsapp.services.network.models.Articles" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.news.DetailNewsFragment">
+
+                <ImageView
+                    android:id="@+id/news_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/noimage"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@id/guideline6"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/ubuntu_medium"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/news_image" />
+                <TextView
+                    android:id="@+id/title_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{viewModel.title}"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/ubuntu_medium"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <TextView
+                    android:id="@+id/author"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:textAlignment="center"
+                    app:autoSizeTextType="uniform"
+                    android:text="@string/author"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/guideline6"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@id/title_value" />
+
+                <TextView
+                    android:id="@+id/author_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:text="@{viewModel.author}"
+                    android:textAlignment="center"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/author" />
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/desc"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/author_value" />
+                <TextView
+                    android:id="@+id/desc_value"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.description}"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/desc" />
+
+                <TextView
+                    android:id="@+id/published"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@string/publish"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/desc_value" />
+                <TextView
+                    android:id="@+id/published_value"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@{viewModel.publishedAt}"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/published" />
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@{viewModel.content}"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/published_value"
+                    android:singleLine="false"/>
+                <TextView
+                    android:id="@+id/url"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/url"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/content" />
+                <TextView
+                    android:id="@+id/url_value"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@{viewModel.url}"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/url" />
+                <TextView
+                    android:id="@+id/url_image"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:text="@string/url_image"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/url_value" />
+                <TextView
+                    android:id="@+id/url_image_value"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@{viewModel.urlToImage}"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/url_image" />
+                <TextView
+                    android:id="@+id/source_id"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:text="@string/source_id"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/url_image_value" />
+                <TextView
+                    android:id="@+id/source_id_value"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@{viewModel.source.id }"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/source_id" />
+                <TextView
+                    android:id="@+id/source_name"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:text="@string/source_name"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/source_id_value" />
+                <TextView
+                    android:id="@+id/source_name_value"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:text="@{viewModel.source.name }"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/guideline7"
+                    app:layout_constraintStart_toEndOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@id/source_name" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.05109489" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
